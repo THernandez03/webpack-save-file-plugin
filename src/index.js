@@ -14,7 +14,6 @@ export default class DiskPlugin {
 
     compiler.hooks.afterEmit.tapAsync(
       'DiskPlugin',
-      // eslint-disable-next-line promise/prefer-await-to-callbacks
       async (curCompiler, callback) => {
         const { assets } = curCompiler;
         const webpackAssets = Object.keys(assets);
@@ -47,13 +46,11 @@ export default class DiskPlugin {
               promisify(fs.mkdir)(directory),
             );
             await promisify(fs.writeFile)(file, asset.source()).catch(() =>
-              // eslint-disable-next-line promise/no-callback-in-promise, promise/prefer-await-to-callbacks
               callback(new Error(`Error writing ${file}`)),
             );
           }),
         );
 
-        // eslint-disable-next-line promise/prefer-await-to-callbacks
         return callback();
       },
     );
