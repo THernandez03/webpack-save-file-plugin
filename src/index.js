@@ -21,11 +21,10 @@ export default class DiskPlugin {
         if (debugAssets) console.log(webpackAssets);
 
         assetsToFind.forEach(({ asset, output }) => {
-          const foundAsset = webpackAssets.find(
-            webpackAsset =>
-              Object.getPrototypeOf(asset).constructor === String
-                ? asset === webpackAsset
-                : asset.test(webpackAsset),
+          const foundAsset = webpackAssets.find(webpackAsset =>
+            Object.getPrototypeOf(asset).constructor === String
+              ? asset === webpackAsset
+              : asset.test(webpackAsset),
           );
 
           if (!foundAsset) return null;
