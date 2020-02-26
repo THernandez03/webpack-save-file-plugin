@@ -42,7 +42,7 @@
     "eslint": "^6.6.0",
     "eslint-config-thernandez": "0.0.13",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.7",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.18.2",
     "standard-version": "^7.1.0"
   }
