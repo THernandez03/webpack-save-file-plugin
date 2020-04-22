@@ -42,8 +42,8 @@
     "eslint": "^6.6.0",
     "eslint-config-thernandez": "0.0.13",
     "husky": "^4.2.5",
-    "lint-staged": "^10.1.5",
-    "prettier": "^2.0.4",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
     "standard-version": "^7.1.0"
   }
 }
