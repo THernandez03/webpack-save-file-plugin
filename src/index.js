@@ -1,7 +1,7 @@
-import fs from 'fs';
 import path from 'path';
-import { promisify } from 'util';
+import { promises as fsPromises } from 'fs';
 
+/* eslint-disable promise/prefer-await-to-callbacks, promise/no-callback-in-promise, promise/catch-or-return, unicorn/new-for-builtins */
 export default class DiskPlugin {
   constructor({ debugAssets, output = '.', files = [] } = {}) {
     this.options = { output, files, debugAssets };
@@ -10,48 +10,47 @@ export default class DiskPlugin {
   apply(compiler) {
     const { debugAssets, output: baseOutput, files } = this.options;
     const assetsToFind = Array.isArray(files) ? files : [files];
-    const assetsToUse = new Map();
 
-    compiler.hooks.afterEmit.tapAsync(
-      'DiskPlugin',
-      async (curCompiler, callback) => {
-        const { assets } = curCompiler;
-        const webpackAssets = Object.keys(assets);
+    compiler.hooks.afterEmit.tapAsync('DiskPlugin', (curCompiler, callback) => {
+      const webpackAssets = Object.entries(curCompiler.assets);
 
-        if (debugAssets) console.log(webpackAssets);
+      if (debugAssets) {
+        console.log(
+          webpackAssets.flatMap(([webpackAssetPath]) => webpackAssetPath),
+        );
+      }
 
-        assetsToFind.forEach(({ asset, output }) => {
-          const foundAsset = webpackAssets.find(webpackAsset =>
-            Object.getPrototypeOf(asset).constructor === String
-              ? asset === webpackAsset
-              : asset.test(webpackAsset),
-          );
+      const assetsToUse = assetsToFind.reduce((acc, { asset, output }) => {
+        const webpackAsset = webpackAssets.find(([webpackAssetPath]) => {
+          const assetType = Object(asset).constructor;
 
-          if (!foundAsset) return null;
+          if (assetType === String) return asset === webpackAssetPath;
+          if (assetType === RegExp) return asset.test(webpackAssetPath);
+          if (assetType === Array) return asset.includes(webpackAssetPath);
 
-          const pathToUse = path.resolve(output || baseOutput, foundAsset);
-
-          if (assetsToUse.has(pathToUse)) return null;
-
-          return assetsToUse.set(pathToUse, assets[foundAsset]);
+          return false;
         });
 
-        await Promise.all(
-          [...assetsToUse.entries()].map(async ([file, asset]) => {
-            const directory = path.dirname(file);
-            const { F_OK, W_OK } = fs.constants;
+        if (!webpackAsset) return acc;
 
-            await promisify(fs.access)(directory, F_OK | W_OK).catch(() =>
-              promisify(fs.mkdir)(directory),
-            );
-            await promisify(fs.writeFile)(file, asset.source()).catch(() =>
-              callback(new Error(`Error writing ${file}`)),
-            );
-          }),
+        const filePath = path.resolve(
+          output || baseOutput,
+          webpackAsset.filename,
         );
 
-        return callback();
-      },
-    );
+        if (acc.has(filePath)) return acc;
+
+        return acc.set(filePath, webpackAsset.content);
+      }, new Map());
+
+      Promise.all(
+        [...assetsToUse.entries()].map(async ([file, asset]) => {
+          await fsPromises.mkdir(path.dirname(file), { recursive: true });
+          await fsPromises
+            .writeFile(file, asset.source(), { encoding: 'utf-8', flag: 'w+' })
+            .catch(() => callback(new Error(`Error writing ${file}`)));
+        }),
+      ).then(callback);
+    });
   }
 }
