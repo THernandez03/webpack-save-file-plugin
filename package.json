@@ -38,7 +38,7 @@
     "@babel/core": "^7.10.4",
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "babel-preset-thernandez": "0.0.14",
+    "babel-preset-thernandez": "0.0.17",
     "eslint": "^7.4.0",
     "eslint-config-thernandez": "0.0.13",
     "husky": "^4.2.5",
