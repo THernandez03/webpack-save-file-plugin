@@ -33,6 +33,9 @@
     "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.11.5",
     "@babel/core": "^7.11.5",
