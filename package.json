@@ -37,8 +37,8 @@
     "@babel/runtime": "^7.11.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.11.5",
-    "@babel/core": "^7.11.5",
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
     "@commitlint/cli": "^9.1.2",
     "babel-preset-thernandez": "0.0.17",
     "commitlint-config-thernandez": "0.0.3",
@@ -46,7 +46,7 @@
     "eslint-config-thernandez": "0.0.14",
     "git-cz": "^4.7.1",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.13",
+    "lint-staged": "^10.3.0",
     "prettier": "^2.1.1",
     "standard-version": "^9.0.0"
   }
