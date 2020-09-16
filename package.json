@@ -39,10 +39,10 @@
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
-    "@commitlint/cli": "^9.1.2",
+    "@commitlint/cli": "^11.0.0",
     "babel-preset-thernandez": "0.0.17",
     "commitlint-config-thernandez": "0.0.3",
-    "eslint": "^7.8.1",
+    "eslint": "^7.9.0",
     "eslint-config-thernandez": "0.0.14",
     "git-cz": "^4.7.1",
     "husky": "^4.3.0",
