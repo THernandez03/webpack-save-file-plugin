@@ -1,6 +1,6 @@
 /* eslint-disable import/no-commonjs, import/unambiguous */
 module.exports = {
-  maxMessageLength: 50,
+  maxMessageLength: 70,
   minMessageLength: 5,
   list: [
     'access',
@@ -65,7 +65,7 @@ module.exports = {
     'types',
     'typo',
     'ui',
-    'upgrade',
+    'update',
     'ux',
     'windows',
     'wip',
@@ -297,9 +297,9 @@ module.exports = {
       value: 'ui',
       description: 'Updating the UI and style files.',
     },
-    upgrade: {
+    update: {
       emoji: '⬆️',
-      value: 'upgrade',
+      value: 'update',
       description: ' Upgrading dependencies.',
     },
     ux: {
