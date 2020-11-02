@@ -46,7 +46,7 @@
     "eslint-config-thernandez": "0.0.17",
     "git-cz": "^4.7.1",
     "husky": "^4.3.0",
-    "lint-staged": "^10.5.0",
+    "lint-staged": "^10.5.1",
     "prettier": "^2.1.2",
     "standard-version": "^9.0.0"
   }
