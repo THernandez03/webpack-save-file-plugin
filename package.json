@@ -30,7 +30,7 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
-    "release": "HUSKY_SKIP_HOOKS=1 standard-version",
+    "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
