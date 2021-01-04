@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "build": "babel src --out-dir dist",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
