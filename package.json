@@ -34,12 +34,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.5"
+    "@babel/runtime": "^7.12.13"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/eslint-parser": "^7.12.1",
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/eslint-parser": "^7.12.13",
     "@commitlint/cli": "^11.0.0",
     "babel-preset-thernandez": "^0.0.20",
     "commitlint-config-thernandez": "0.0.4",
