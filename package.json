@@ -38,13 +38,13 @@
     "@babel/runtime": "^7.14.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.2",
-    "@babel/eslint-parser": "^7.14.2",
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.3",
     "@commitlint/cli": "^12.1.4",
     "babel-preset-thernandez": "^0.0.21",
     "commitlint-config-thernandez": "^0.0.5",
-    "eslint": "^7.26.0",
+    "eslint": "^7.27.0",
     "eslint-config-thernandez": "^0.0.25",
     "git-cz": "^4.7.6",
     "husky": "^6.0.0",
