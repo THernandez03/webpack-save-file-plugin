@@ -44,10 +44,10 @@
     "@commitlint/cli": "^13.2.1",
     "babel-preset-thernandez": "^0.0.23",
     "commitlint-config-thernandez": "^0.0.5",
-    "eslint": "^8.0.1",
+    "eslint": "^8.1.0",
     "eslint-config-thernandez": "^0.0.27",
     "git-cz": "^4.8.0",
-    "husky": "^7.0.2",
+    "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
     "standard-version": "^9.3.2"
